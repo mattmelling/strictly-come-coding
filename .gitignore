@@ -27,3 +27,5 @@ python.txt
 # virtual environments
 venv/
 
+/*.o
+/.direnv/

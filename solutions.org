@@ -1,0 +1,26 @@
+* Setup
+- i7 4790k
+- Budget SSD
+
+#+BEGIN_SRC sh :results output
+uname -a
+#+END_SRC
+
+#+RESULTS:
+: Linux citadel 6.6.43 #1-NixOS SMP PREEMPT_DYNAMIC Sat Jul 27 09:34:11 UTC 2024 x86_64 GNU/Linux
+
+* Solutions
+
+#+BEGIN_SRC
+make <solution>
+./<solution> measurements.txt
+#+END_SRC
+
+** brc_sequential_read
+| Variant           | Run | Time      | Seconds |
+|-------------------+-----+-----------+---------|
+| BUFFER_SIZE=32MB  |   1 | 3m46.689s | 226.689 |
+| BUFFER_SIZE=64MB  |   1 | 3m46.514s | 226.514 |
+| BUFFER_SIZE=128MB |   1 | 3m38.165s | 218.165 |
+| BUFFER_SIZE=512MB |   1 | 3m47.411s | 227.411 |
+#+TBLFM: $4='(+ (string-to-number (car (cdr (split-string $3 "m")))) (* 60 (string-to-number (car (split-string $3 "m")))))
