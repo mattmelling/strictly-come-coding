@@ -18,6 +18,9 @@ clean:
 brc_sequential_read: brc_sequential_read.c parser.o hashtable.o hash.o
 	$(CC) $(CFLAGS) -o $@ $^
 
+brc_sequential_mmap: brc_sequential_mmap.c parser.o hashtable.o hash.o
+	$(CC) $(CFLAGS) -o $@ $^
+
 # tests
 
 test_parser: test_parser.c parser.o debug.h

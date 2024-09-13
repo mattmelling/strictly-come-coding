@@ -24,3 +24,23 @@ make <solution>
 | BUFFER_SIZE=128MB |   1 | 3m38.165s | 218.165 |
 | BUFFER_SIZE=512MB |   1 | 3m47.411s | 227.411 |
 #+TBLFM: $4='(+ (string-to-number (car (cdr (split-string $3 "m")))) (* 60 (string-to-number (car (split-string $3 "m")))))
+
+** brc_sequential_mmap
+| Variant                    | Run | Time      | Seconds |
+|----------------------------+-----+-----------+---------|
+| BUFFER_SIZE=4MB            |   1 | 3m25.921s | 205.921 |
+| BUFFER_SIZE=4MB, madvise   |   1 | 3m20.333s | 200.333 |
+| BUFFER_SIZE=16MB, madvise  |   1 | 3m14.885s | 194.885 |
+| BUFFER_SIZE=256MB, madvise |   1 | 3m10.349s | 190.349 |
+| BUFFER_SIZE=512MB, madvise |   1 | 3m14.489s | 194.489 |
+| BUFFER_SIZE=2GB, madvise   |   1 | 3m17.681s | 197.681 |
+#+TBLFM: $4='(+ (string-to-number (car (cdr (split-string $3 "m")))) (* 60 (string-to-number (car (split-string $3 "m")))))
+
+| Variant                  | Run | Time      | Seconds |  Result |
+|--------------------------+-----+-----------+---------+---------|
+| BUFFER_SIZE=1GB, madvise |   1 | 3m5.715s  | 185.715 |         |
+| BUFFER_SIZE=1GB, madvise |   2 | 3m3.106s  | 183.106 |         |
+| BUFFER_SIZE=1GB, madvise |   3 | 3m5.193s  | 185.193 |         |
+| BUFFER_SIZE=1GB, madvise |   4 | 3m5.193s  | 185.193 |         |
+| BUFFER_SIZE=1GB, madvise |   5 | 3m12.497s | 192.497 | 185.367 |
+#+TBLFM: $4='(+ (string-to-number (car (cdr (split-string $3 "m")))) (* 60 (string-to-number (car (split-string $3 "m")))))::@6$5=(vsum(@2$4..@6$4)-vmin(@2$4..@6$4)-vmax(@2$4..@6$4))/3

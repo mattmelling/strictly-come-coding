@@ -8,6 +8,7 @@
 
 void main(int argc, char **argv)
 {
+  unsigned long N = 0;
   int fd = open(argv[1], O_RDONLY);
   if (fd == -1) {
     perror("open");
@@ -35,8 +36,10 @@ void main(int argc, char **argv)
     if (p == NULL)
       break;
     debug("%-32s %.1f\n", r.location, r.reading);
+    N++;
   }
 
   free(buf);
+  printf("Total items: %u\n", N);
   exit(0);
 }
