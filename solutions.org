@@ -36,11 +36,11 @@ make <solution>
 | BUFFER_SIZE=2GB, madvise   |   1 | 3m17.681s | 197.681 |
 #+TBLFM: $4='(+ (string-to-number (car (cdr (split-string $3 "m")))) (* 60 (string-to-number (car (split-string $3 "m")))))
 
-| Variant                  | Run | Time      | Seconds |  Result |
-|--------------------------+-----+-----------+---------+---------|
-| BUFFER_SIZE=1GB, madvise |   1 | 3m5.715s  | 185.715 |         |
-| BUFFER_SIZE=1GB, madvise |   2 | 3m3.106s  | 183.106 |         |
-| BUFFER_SIZE=1GB, madvise |   3 | 3m5.193s  | 185.193 |         |
-| BUFFER_SIZE=1GB, madvise |   4 | 3m5.193s  | 185.193 |         |
-| BUFFER_SIZE=1GB, madvise |   5 | 3m12.497s | 192.497 | 185.367 |
+| Variant                  | Run | Time      |            Seconds |  Result |
+|--------------------------+-----+-----------+--------------------+---------|
+| BUFFER_SIZE=1GB, madvise |   1 | 2m58.482s |            178.482 |         |
+| BUFFER_SIZE=1GB, madvise |   2 | 2m57.675s |            177.675 |         |
+| BUFFER_SIZE=1GB, madvise |   3 | 2m58.557s | 178.55700000000002 |         |
+| BUFFER_SIZE=1GB, madvise |   4 | 2m50.490s |             170.49 |         |
+| BUFFER_SIZE=1GB, madvise |   5 | 3m0.369s  |            180.369 | 178.238 |
 #+TBLFM: $4='(+ (string-to-number (car (cdr (split-string $3 "m")))) (* 60 (string-to-number (car (split-string $3 "m")))))::@6$5=(vsum(@2$4..@6$4)-vmin(@2$4..@6$4)-vmax(@2$4..@6$4))/3
